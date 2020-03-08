@@ -46,11 +46,11 @@ const ParameterSettings = () => {
 
     return (
       <div>
-      <form className="container" onSubmit = {handleFormSubmit}>
+      <form onSubmit={handleFormSubmit}>
         <Container style={{marginTop: '30px', width:'40%', border: '1px solid #ccc', padding: '20px', boxShadow: '2px 2px 5px rgba(0, 0, 0, 0.3)'}}>
         
         {/* Network Type */}
-        <div className="form-group row">
+        <div className="form-group row" >
             <label className="form-label col-sm-4">Network Type</label>
             <div className="col-sm-8">
             <select onChange={handleNetworkChange} value={networkState}>
@@ -67,6 +67,7 @@ const ParameterSettings = () => {
                 key={`layer-${idx}`}
                 idx={idx}
                 layerState={layerState}
+                networkState={networkState}
                 handleLayerChange={handleLayerChange}
                 />
             ))
@@ -93,7 +94,7 @@ const ParameterSettings = () => {
   }
 
 const buttonStyle = {
-    margin : '10px 10px 10px 0px'
+    margin : '20px 10px 10px 0px'
   }
 
 export default ParameterSettings;

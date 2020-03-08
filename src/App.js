@@ -8,6 +8,8 @@ import {Container, Row, Col} from 'react-bootstrap'
 import CSVupload from './containers/CSVupload';
 import FormContainer from './containers/ParameterSettings';
 import FormContainerNew from './containers/SessionSettings';
+import ParameterSettings from './containers/ParameterSettings';
+import SessionSettings from './containers/SessionSettings';
 
 
 class App extends Component {
@@ -19,8 +21,8 @@ class App extends Component {
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/uploaddataset" component={CSVupload} />
-          <Route path="/networksettings" component={FormContainerNew}/>
-          <Route path="/sessionsettings" component={FormContainer} />
+          <Route path="/networksettings" component={ParameterSettings}/>
+          <Route path="/sessionsettings" component={SessionSettings} />
         </Switch>
       </div>
       </Router>

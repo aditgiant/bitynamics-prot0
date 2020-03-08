@@ -5,7 +5,7 @@ import './App.css';
 
 function Nav() {
     return(
-        <nav>
+        <nav tabs>
             <Link style={{color:'white'}} to="/">
                 <h4>Bitynamics ML</h4>
             </Link>

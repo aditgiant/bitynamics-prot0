@@ -149,14 +149,14 @@ class SessionSettings extends Component {
       <div>
       <form className="container" onSubmit={this.handleFormSubmit}>
         <Container style={{marginTop: '30px', width:'40%', border: '1px solid #ccc', padding: '20px', boxShadow: '2px 2px 5px rgba(0, 0, 0, 0.3)'}}>
-        <Select title={'Output Type'}
+        {/* <Select title={'Output Type'}
                 name={'output'}
                 options = {this.state.outputOptions} 
                 value = {this.state.newTraining.output}
                 placeholder = {'Select type'}
                 handleChange = {this.handleInput}
                 required
-                /> {/* Output Selection */}
+                /> {/* Output Selection
         <Select title={'Network Type'}
                 name={'network'}
                 options = {this.state.networkOptions} 
@@ -164,7 +164,7 @@ class SessionSettings extends Component {
                 placeholder = {'Select type'}
                 handleChange = {this.handleNetwork}
                 required
-                /> {/* Network Selection */}
+                /> Network Selection */}
         <Input inputType={'number'} 
                 name={'epochs'}
                 title= {'Number of Epochs'} 
@@ -174,22 +174,6 @@ class SessionSettings extends Component {
                 required
                 /> {/* Number of Epochs */}
         <Input inputType={'number'} 
-                name={'numlayers'}
-                title= {'Number of Layers'} 
-                value={this.state.newTraining.numlayers} 
-                placeholder = {'Insert integer >=1'}
-                handleChange={this.handleInput}
-                required
-                /> {/* Number of Layers */}
-        <Input inputType={'number'} 
-                name={'learningrate'}
-                title= {'Learning Rate'} 
-                value={this.state.newTraining.learningrate} 
-                placeholder = {'Insert integer >=1'}
-                handleChange={this.handleInput}
-                required
-                /> {/* Learning Rate */}
-        <Input inputType={'number'} 
                 name={'batchsize'}
                 title= {'Batch Size'} 
                 value={this.state.newTraining.batchsize} 
@@ -197,6 +181,14 @@ class SessionSettings extends Component {
                 handleChange={this.handleInput}
                 required
                 /> {/* Batch Size */}
+        <Input inputType={'number'} 
+                name={'numlayers'}
+                title= {'Number of Layers'} 
+                value={this.state.newTraining.numlayers} 
+                placeholder = {'Insert integer >=1'}
+                handleChange={this.handleInput}
+                required
+                /> {/* Number of Layers */}
         <Select title={'Optimizer'}
                 name={'optimizer'}
                 options = {this.state.optimizerOptions} 
@@ -206,13 +198,21 @@ class SessionSettings extends Component {
                 required
                 /> {/* Optimizer*/}
         <Input inputType={'number'} 
+                name={'learningrate'}
+                title= {'Learning Rate'} 
+                value={this.state.newTraining.learningrate} 
+                placeholder = {'Insert integer >=1'}
+                handleChange={this.handleInput}
+                required
+                /> {/* Learning Rate */}
+        {/* <Input inputType={'number'} 
                 name={'dropout'}
                 title= {'Dropout'} 
                 value={this.state.newTraining.dropout} 
                 placeholder = {'Insert integer >=1'}
                 handleChange={this.handleInput}
                 required
-                /> {/* Dropout */}
+                /> {/* Dropout
         {this.state.newTraining.network === 'MLP' && (
         <Input inputType={'number'} 
                 name={'mlpnodes'}
@@ -240,7 +240,7 @@ class SessionSettings extends Component {
                 handleChange={this.handleCNNSizeLayers}
                 required
                 />)}
-        {/* {isMLP(this.state.newTraining.network)} */}
+        {isMLP(this.state.newTraining.network)} */}
         <Button 
             action = {this.handleFormSubmit}
             type = {'primary'} 
