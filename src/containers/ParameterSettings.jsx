@@ -9,7 +9,7 @@ import Button from '../components/Button';
 import {Container} from 'react-bootstrap';
 import { isElementOfType } from 'react-dom/test-utils';
 
-const FormContainerNew = () => {
+const ParameterSettings = () => {
     /// Network Type
     const [networkState, setNetworkState] = useState({
         network: ''
@@ -96,4 +96,4 @@ const buttonStyle = {
     margin : '10px 10px 10px 0px'
   }
 
-export default FormContainerNew;
+export default ParameterSettings;

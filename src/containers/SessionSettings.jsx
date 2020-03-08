@@ -8,7 +8,7 @@ import Button from '../components/Button';
 import {Container, Row, Col} from 'react-bootstrap'
 import { isElementOfType } from 'react-dom/test-utils';
 
-class FormContainer extends Component {  
+class SessionSettings extends Component {  
   constructor(props) {
     super(props);
 
@@ -277,4 +277,4 @@ const buttonStyle = {
     margin : '10px 10px 10px 0px'
   }
 
-export default FormContainer;
+export default SessionSettings;

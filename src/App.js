@@ -3,11 +3,11 @@ import logo from './logo.svg';
 import './App.css';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import Nav from './Nav'
-import FormContainer from './containers/FormContainer';
 import Button from './components/Button';
 import {Container, Row, Col} from 'react-bootstrap'
 import CSVupload from './containers/CSVupload';
-import FormContainerNew from './containers/FormContainerNew';
+import FormContainer from './containers/ParameterSettings';
+import FormContainerNew from './containers/SessionSettings';
 
 
 class App extends Component {
