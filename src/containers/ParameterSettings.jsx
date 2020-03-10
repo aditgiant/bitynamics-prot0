@@ -20,7 +20,8 @@ const ParameterSettings = () => {
     //  };
 
     /// New Layer
-    const newLayer =  {type:'',
+    const newLayer =  {id: '',
+            type:'',
             nodes:'',
             kernel:'',
             bias:'',
@@ -28,8 +29,17 @@ const ParameterSettings = () => {
     const [layerState, setLayerState] = useState([
         {...newLayer},]);
     const addLayer = () => {
+        console.log('i added this')
             setLayerState([...layerState, { ...newLayer }]);
         };
+
+    const handleRemoveLayer = (index) => {
+        console.log('before : ',layerState);
+        //const previousLayerState = [...layerState];
+        setLayerState(layerState.filter(newLayerState => newLayerState.id !== index))
+        console.log('now : ', layerState);
+    }
+
     const handleLayerChange = (e) => {
             const updatedLayers = [...layerState];
             updatedLayers[e.target.dataset.idx][e.target.className] = e.target.value;
@@ -40,14 +50,14 @@ const ParameterSettings = () => {
     function handleFormSubmit(e){
         e.preventDefault();
         let layerList = layerState;
-        console.log(layerList);
+       
         window.alert(JSON.stringify(layerList, 0, 2))
       };
 
     return (
       <div>
-      <form onSubmit={handleFormSubmit}>
-        <Container style={{marginTop: '30px', width:'40%', border: '1px solid #ccc', padding: '20px', boxShadow: '2px 2px 5px rgba(0, 0, 0, 0.3)'}}>
+      <Container style={{marginTop: '30px', width:'40%', border: '1px solid #ccc', padding: '20px', boxShadow: '2px 2px 5px rgba(0, 0, 0, 0.3)'}}>
+      <form onSubmit={()=>handleFormSubmit}>
         
         {/* Network Type */}
         <div className="form-group row" >
@@ -63,6 +73,8 @@ const ParameterSettings = () => {
         <div className="form-group-row">
         {
             layerState.map((val, idx) => (
+            <>
+            <button style={{marginTop: '0px'}} onClick={()=>handleRemoveLayer(idx)}> X </button>
             <DenseLayer 
                 key={`layer-${idx}`}
                 idx={idx}
@@ -70,17 +82,17 @@ const ParameterSettings = () => {
                 networkState={networkState}
                 handleLayerChange={handleLayerChange}
                 />
+            </>
             ))
         }
         </div>
+      </form>
         <Button 
             action = {addLayer}
             type = {'primary'} 
             title = {'Add New Layer'} 
             style = {buttonStyle}
             /> { /*Submit */ }
-        
-
         <Button 
             action = {handleFormSubmit}
             type = {'primary'} 
@@ -88,13 +100,12 @@ const ParameterSettings = () => {
             style = {buttonStyle}
             /> { /*Submit */ }  
         </Container>
-      </form>
       </div>
     );
   }
 
 const buttonStyle = {
-    margin : '20px 10px 10px 0px'
+    margin : '10px 10px 10px 0px'
   }
 
 export default ParameterSettings;

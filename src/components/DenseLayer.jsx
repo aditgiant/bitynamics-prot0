@@ -23,8 +23,11 @@ const DenseLayer = ({ idx, layerState, networkState, handleLayerChange }) => {
     // Collapse Layer
     const [open, setOpen] = useState(false);
 
+    // ID declare
+    layerState[idx].id = idx;
+
     return (
-        <Container style={{marginTop: '10px', width:'100%', border: '1px solid #ccc', padding: '10px', boxShadow: '2px 2px 2px rgba(0, 0, 0, 0.3)'}} key={`layer-${idx}`}>
+        <Container style={{marginBottom: '10px', width:'100%', border: '1px solid #ccc', padding: '10px', boxShadow: '2px 2px 2px rgba(0, 0, 0, 0.3)'}} key={`layer-${idx}`}>
         {/* Collapse Button */}
         <Button
           onClick={() => setOpen(!open)}
