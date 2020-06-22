@@ -31,8 +31,7 @@ const DenseLayer = ({ idx, layerState, networkState, handleLayerChange }) => {
         {/* Collapse Button */}
         <Button
           onClick={() => setOpen(!open)}
-          aria-controls="layerparameters"
-          aria-expanded={open}>
+          >
           {`Layer #${idx + 1}`}
         </Button>
         <Collapse in={open}>

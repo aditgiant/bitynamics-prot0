@@ -1,0 +1,68 @@
+.model-component {
+  color: white;
+  font-weight: 200;
+  width: 100%;
+}
+
+.model-item {
+  padding-bottom: 20px;
+  border-bottom: solid 1px;
+}
+
+.model-title {
+  font-size: 1.5em;
+  font-weight: 400;
+}
+
+.side-menu {
+  text-align: center;
+}
+
+.side-menu ul {
+  list-style: none;
+  padding:0px;
+  margin-left:25px;
+  text-decoration: none;
+}
+
+.side-menu ul li {
+  margin-top:10px;
+  padding: 40px 0 40px 0;
+  position: relative;
+  width: 130px;
+  cursor: pointer;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  border-radius:10px;
+  text-decoration: none;
+}
+
+.side-menu ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.side-menu ul li:hover {
+  background-color: #0C4973;
+  text-decoration: none;
+  font-weight:bold;
+}
+
+.side-menu ul li:hover > ul {
+  opacity: 1;
+  visibility: visible;
+  z-index: 1;
+  text-decoration: none;
+}
+
+.side-menu ul ul {
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  opacity: 0;
+  position: absolute;
+  visibility: hidden;
+  background-color: #015792;
+  left: 100%;
+  top: -2%;
+  text-decoration: none;
+}

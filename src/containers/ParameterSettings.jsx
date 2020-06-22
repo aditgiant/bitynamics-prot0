@@ -6,6 +6,7 @@ import DenseLayer from '../components/DenseLayer';
 import Input from '../components/Input';  
 import Select from '../components/Select';
 import Button from '../components/Button';
+import {Link} from 'react-router-dom';
 import {Container} from 'react-bootstrap';
 import { isElementOfType } from 'react-dom/test-utils';
 
@@ -56,7 +57,7 @@ const ParameterSettings = () => {
 
     return (
       <div>
-      <Container style={{marginTop: '30px', width:'40%', border: '1px solid #ccc', padding: '20px', boxShadow: '2px 2px 5px rgba(0, 0, 0, 0.3)'}}>
+      <Container id="home-container">
       <form onSubmit={()=>handleFormSubmit}>
         
         {/* Network Type */}
@@ -99,6 +100,11 @@ const ParameterSettings = () => {
             title = {'Submit'} 
             style = {buttonStyle}
             /> { /*Submit */ }  
+        <Link to='/sessiontraining'><Button 
+            type = {'secondary'} 
+            title = {'Back'} 
+            style = {buttonStyle}
+            /></Link> { /* Back */ } 
         </Container>
       </div>
     );

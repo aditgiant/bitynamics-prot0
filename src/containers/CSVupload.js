@@ -1,38 +1,34 @@
-import React, {Component} from 'react';  
-/* Import Components */
-import CSVReader from 'react-csv-reader'
-import Button from '../components/Button';
-import {Container, Row, Col} from 'react-bootstrap'
+import React, {useState} from 'react';
+import '../App.css';
+import DragDrop from '../components/DragDrop';
+import DataPreprocessor from '../components/DataPreprocessor'  
+import {Container, Row, Col} from 'react-bootstrap';
 
-class CSVupload extends Component {  
-    constructor(props) {
-      super(props);
-  
-      this.state = {
-        newData: {
-          csvfiles:''
-        }}
-      this.handleCSVFile = this.handleCSVFile.bind(this);
-    }
-  
-    /* This life cycle hook gets executed when the component mounts */
-    handleCSVFile(e){
-    }
-  
-    render() {
+function CSVupload() {
+      const [step, setStep]= useState(0);
       return (
-        <Container style={{marginTop: '30px', width:'40%', border: '1px solid #ccc', padding: '20px', boxShadow: '2px 2px 5px rgba(0, 0, 0, 0.3)' }}>
-          <CSVReader
-                  cssClass="csv-reader-input"
-                  label="Upload .csv file as input"
-                  onFileLoaded={this.handleCSVFile}
-                  // onError={this.handleDarkSideForce}
-                  inputId="TrainingData"
-                  inputStyle={{margin: '0px 0px 15px 0px' }}
-                  />
+        <Container id="home-container">
+          {step==0 && <DragDrop/>}
+          {step==0 && <button className='btn btn-primary' style={buttonStyle} onClick={() => setStep(step+1)}>Next</button>}
+          {step==1 && <DataPreprocessor/>}
+          {step==1 && <button className='btn btn-secondary' style={changeButtonStyle} onClick={() => setStep(step-1)}>Back</button>}
+          {step==1 && <button className='btn btn-primary' style={buttonStyle}>Use dataset</button>}
         </Container>
       );
-    }
+  }
+  
+  const buttonStyle = {
+    margin : '10px 10px 10px 0px',
+    position : 'absolute',
+    bottom : '20px',
+    right:'10px'
+  }
+  
+  const changeButtonStyle = {
+    margin : '10px 10px 10px 0px',
+    position : 'absolute',
+    bottom : '20px',
+    right:'150px'
   }
   
   export default CSVupload;

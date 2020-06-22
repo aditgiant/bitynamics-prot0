@@ -1,3 +1,10 @@
+html, body{
+  height:100%;
+  width:100%;
+  margin:0;
+  display:block;
+   position:relative;
+}
 .App {
   text-align: center;
 }
@@ -5,6 +12,81 @@
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+
+.sidebar {
+  width:12%;
+  background-color: #015792;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  box-shadow: inset 0 0 10px #00233a;
+  display: flex;
+  position: absolute;
+  top:0;
+  left:0;
+  height:100%;
+}
+
+.router-link:hover {
+  text-decoration:none;
+}
+
+.dashboard {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: block;
+  height:100%;
+}
+
+#top-bar {
+  position: fixed;
+  top:10px;
+  left:0;
+  padding-left:15vw;
+  width:100vw;
+  height: 30px;
+}
+
+#project-icon-top{
+  max-height: 100%;
+  display:inline-block;
+}
+
+#logo {
+  right:0;
+  padding-right:3vw;
+  position:absolute;
+  max-height: 100%;
+}
+
+#project-switch {
+  display: inline-block;
+  max-width: 100%;
+  padding-right: 5px;
+  height:45px;
+  transition: 250ms ease-in-out;
+  border-radius:5px;
+}
+
+#project-switch:hover {
+  transform: scale(1.05);
+  border: 2px solid #015792;
+}
+
+#project-switch a{
+  display: inline-block;
+  max-width: 100%;
+  padding:0;
+  margin:0;
+  height:30px;
+}
+
+#project-title-top{
+  display: inline-block;
+  margin-left:10px;
+  margin-right:5px;
+  margin-top: 10px;
+  margin-bottom:0;
 }
 
 /* form {
@@ -62,13 +144,15 @@ Error {
     justify-content: center;
   }
 
-nav{
+#topbar{
+  height: 30px;
+  width:100%;
   display: flex;
   justify-content: space-around;
   align-items: center;
   min-height: 10vh;
-  background: rgb(73, 82, 86);
-  color: white;
+  background: transparent;
+  color: #015792;
 }
 
 .nav-links{
@@ -99,6 +183,115 @@ nav{
 
 .App-link {
   color: #61dafb;
+}
+
+#home-container{
+  margin-left:20vw;
+  top: 10vh;
+  width:70%;
+  height:75vh;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  position:relative;
+}
+
+.input-hidden {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+input[type=radio] + label {
+  padding:5px;
+  display: inline-block;
+  width:auto;
+  cursor:pointer;
+}
+
+input[type=radio] + label>img {
+  padding:5px;
+  width: 150px;
+  opacity: 0.6;
+  transition: 500ms all;
+}
+
+input[type=radio]:checked + label>img {
+  box-shadow: 0 0 3px 3px #015792;
+  border-radius: 5px;
+  opacity: 1;
+}
+
+#output-type-option{
+  position: relative;
+}
+
+#output-type {
+  display:inline-block;
+  background-color: #DADBE1;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  height: 40px;
+  padding:0;
+}
+
+.input-type {
+  display:inline-block;
+  background-color: rgb(245, 245, 245);
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  position: relative;
+  box-shadow: inset 0 0 10px #b8b8b8;
+}
+
+#input-type-classification {
+  top:0px;
+}
+
+#input-type-regression {
+  top:0px;
+}
+
+input[type=radio] + label>p {
+  padding:5px;
+  opacity: 0.8;
+}
+
+input[type=radio]:checked + label>p {
+  background:#015792;
+  box-shadow: 0 0 3px 3px #02365860;
+  border-radius: 5px;
+  opacity: 1;
+  color:#fff;
+}
+
+#project-type-descriptions {
+  margin-top : 10px;
+}
+
+.mode-selector{
+  text-align: center;
+  align-items: center;
+}
+
+#mode-selector-switch{
+  display:inline-block;
+  background-color: #DADBE1;
+  border-radius: 10px;
+  height: 40px;
+  padding:0;
+}
+
+#mode-selector-option{
+  display:inline-block;
+}
+
+.mode-selector-icon{
+  max-height:20vh;
+  margin-top:5vh;
+  margin-bottom:5vh;
 }
 
 @keyframes App-logo-spin {

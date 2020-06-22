@@ -1,26 +1,21 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import Bitynamics from './imgsrc/Bitynamics.png';
+import Project from './imgsrc/Project.png';
 import {Link} from 'react-router-dom';
 import './App.css';
 
 function Nav() {
     return(
-        <nav tabs>
-            <Link style={{color:'white'}} to="/">
-                <h4>Bitynamics ML</h4>
+        <div id="top-bar" tabs>
+            <div id="project-switch">
+            <Link to="/">
+                <img id="project-icon-top" src={Project}/>
+                <div id="project-title-top"><strong>Project 1</strong> </div>
+                <i class="fas fa-caret-down"></i>
             </Link>
-            <ul className="nav-links">
-                <Link style={{color:'white'}} to='/uploaddataset'>
-                    <li>Upload dataset</li>
-                </Link>
-                <Link style={{color:'white'}} to='/networksettings'>
-                    <li>Network settings</li>
-                </Link>
-                <Link style={{color:'white'}} to='/sessionsettings'>
-                    <li>Session settings</li>
-                </Link>
-            </ul>
-        </nav>
+            </div>
+            <img id="logo" src={Bitynamics}/>
+        </div>
     );
 
 }
