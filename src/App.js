@@ -45,7 +45,7 @@ class App extends Component {
         <Switch>
           <Route path="/" exact component={Home}/>
           <Route path="/project/:id" exact component={ProjectHome}/>
-          <Route path="/uploaddataset" component={CSVupload} />
+          <Route path="/dataset/:id" component={CSVupload} />
           <Route path="/sessiontraining" component={SessionTraining} />
           <Route path="/networksettings" component={NetworkSettings} />
         </Switch>

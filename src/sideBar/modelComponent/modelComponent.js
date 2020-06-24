@@ -26,7 +26,7 @@ class modelComponent extends Component {
               </div></li>
             </Link>
 
-            <Link className="router-link" style={{color:'white'}} to='/uploaddataset'>
+            <Link className="router-link" style={{color:'white'}} to={`/dataset/${this.props.id}`}>
               <li><div className="fas fa-database fa-2x"></div>
               <div>
                Dataset

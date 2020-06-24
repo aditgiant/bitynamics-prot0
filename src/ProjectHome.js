@@ -17,10 +17,10 @@ class ProjectHome extends Component {
     
         this.state = {
           newProject: {
-            key:this.props.match.params.id,
+            key:'projectnotfound',
             projectName:'',
-            outputType:'Classification',
-            inputType:'Tabular'
+            outputType:'',
+            inputType:''
           },
     
           outputTypes: ['Classification', 'Regression'],
@@ -38,6 +38,7 @@ class ProjectHome extends Component {
           const ref = fire.firestore().collection('projects').doc(this.props.match.params.id);
           ref.get().then((doc) => {
             if (doc.exists) {
+              console.log("componentDidMount-success");
               const board = doc.data();
               this.setState({ ...this.state, newProject : {
                 key: doc.id,
@@ -49,7 +50,8 @@ class ProjectHome extends Component {
               console.log("No such document!");
             }
           });
-      console.log("componentDidMount")
+      console.log("componentDidMount");
+      console.log(this.state.newProject.projectName)
       }    
 
       componentDidUpdate(prevProps) {
@@ -70,7 +72,8 @@ class ProjectHome extends Component {
             }
           });
         }
-      console.log("componentDidUpdate")
+      console.log("componentDidUpdate");
+      console.log(this.state.newProject.projectName);
       }    
       /* This life cycle hook gets executed when the component mounts */
     

@@ -1,17 +1,21 @@
 import React, {Component} from 'react';  
 import 'react-bootstrap';
-import Collapse from 'react-bootstrap/Collapse'
+import Collapse from 'react-bootstrap/Collapse';
+import fire from '../Fire';
 
 class DataPreprocessor extends Component {  
     constructor(props) {
         super(props);
     
         this.state = {
+          id:this.props.id,
           open:
             {
             advanced:false
           },
           newDataset: {
+            csvDatasetName:'',
+            csvDatasetLink:'',
             header:false,
             missingEncoded:'',
             removeMissingData:true,
@@ -27,6 +31,23 @@ class DataPreprocessor extends Component {
         this.handleCollapsible = this.handleCollapsible.bind(this);
       }
       
+      componentDidMount() {
+        const ref = fire.firestore().collection('projects').doc(this.state.id);
+        ref.get().then((doc) => {
+          if (doc.exists) {
+            console.log("componentDidMount-success");
+            const board = doc.data();
+            this.setState({ ...this.state, newDataset : {
+              csvDatasetName : board.csvDatasetName,
+              csvDatasetLink : board.csvDatasetLink
+            }});
+          } else {
+            console.log("No such document!");
+          }
+        });
+      console.log("componentDidMount");
+      }
+
       handleDatasetParameter(e) {
         let value = e.target.value;
         let name = e.target.name;
@@ -56,9 +77,24 @@ class DataPreprocessor extends Component {
     return (
       <div>
       <form onSubmit={this.handleFormSubmit}>
+      <h1>{this.state.id}</h1>
+        <div id="dataset-name" className="form-group row">
+        <label for={'dataset-name'} className="form-label col-sm-3">Name</label>
+                <div className="col-sm-6">
+                  <input
+                    className="form-control"
+                    id={'dataset-name'}
+                    name={'csvDatasetName'}
+                    type="string"
+                    value={this.state.newDataset.csvDatasetName} 
+                    onChange={this.handleDatasetParameter}
+                    placeholder="This cannot be empty"
+                    />
+                </div>
+        </div>
         
         <div id="dataset-header" className="form-group row" >
-        <label for={'projectName'} className="form-label col-sm-3">First row as header</label>
+        <label for={'header'} className="form-label col-sm-3">First row as header</label>
                 <div className="col-sm-6">
                   <input
                     id={'header'}
