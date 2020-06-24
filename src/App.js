@@ -1,33 +1,61 @@
 import React, { Component, useEffect } from 'react';
-import logo from './logo.svg';
-import SideBar from './sideBar/sideBar';
 import './App.css';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+
 import Nav from './Nav'
-import Button from './components/Button';
-import {Container, Row, Col} from 'react-bootstrap'
-import CSVupload from './containers/CSVupload';
-import FormContainer from './containers/ParameterSettings';
-import FormContainerNew from './containers/SessionSettings';
+import SideBar from './sideBar/sideBar';
 import Home from './Home';
+import ProjectHome from './ProjectHome';
+import CSVupload from './containers/CSVupload';
 import SessionTraining from './containers/SessionTraining';
 import NetworkSettings from './containers/ParameterSettings';
-
+import fire from './Fire';
+import Login from './Login';
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = ({
+      user: null,
+    });
+    this.authListener = this.authListener.bind(this);
+  }
+
+  componentDidMount() {
+    this.authListener();
+  }
+
+  authListener() {
+    fire.auth().onAuthStateChanged((user) => {
+      console.log(user);
+      if (user) {
+        this.setState({ user });
+        localStorage.setItem('user', user.uid);
+      } else {
+        this.setState({ user: null });
+        localStorage.removeItem('user');
+      }
+    });
+  }
   render() {
     return (
       <div className="dashboard">
-      <Router>
-        <SideBar />
-        <Nav/>
+      {this.state.user ?  
+      (<Router>
         <Switch>
-          <Route path="/" exact component={Home} />
+          <Route path="/" exact component={Home}/>
+          <Route path="/project/:id" exact component={ProjectHome}/>
           <Route path="/uploaddataset" component={CSVupload} />
           <Route path="/sessiontraining" component={SessionTraining} />
           <Route path="/networksettings" component={NetworkSettings} />
         </Switch>
-      </Router>
+
+        {/* Move SideBar and Nav to each route */}
+        {/* So that we can pass the props:id */}
+        
+        {/* <SideBar />
+        <Nav/> */}
+      </Router>) : ( <Login/>)}
       </div>
     );
   }

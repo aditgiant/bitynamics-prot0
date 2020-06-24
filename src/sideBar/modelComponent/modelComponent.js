@@ -1,14 +1,25 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
+import fire from '../../Fire';
 import './modelComponent.css';
 
 class modelComponent extends Component {
+  logout() {
+    fire.auth().signOut();
+  }
   render() {
+    console.log(this.props.id);
     return (
       <div className="model-component">
         <div className="side-menu">
           <ul>
-            <Link className="router-link" style={{color:'white'}} to='/'>
+            <Link className="router-link" style={{color:'white'}} onClick={this.logout}>
+              <li><div className="fas fa-user fa-2x"></div>
+              <div>
+                Logout
+              </div></li>
+            </Link>
+            <Link className="router-link" style={{color:'white'}} to={`/project/${this.props.id}`} >
               <li><div className="fas fa-home fa-2x"></div>
               <div>
                 Home
