@@ -32,14 +32,15 @@ class DataPreprocessor extends Component {
       }
       
       componentDidMount() {
-        const ref = fire.firestore().collection('projects').doc(this.state.id);
+        const ref = fire.firestore().collection('projects').doc(this.state.id).collection('csvDataset').doc('preprocessor');
         ref.get().then((doc) => {
           if (doc.exists) {
             console.log("componentDidMount-success");
             const board = doc.data();
             this.setState({ ...this.state, newDataset : {
               csvDatasetName : board.csvDatasetName,
-              csvDatasetLink : board.csvDatasetLink
+              // Continue with the rest of the parameters
+              // Fill to the form below
             }});
           } else {
             console.log("No such document!");

@@ -2,11 +2,9 @@ import React, { Component, useEffect } from 'react';
 import './App.css';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
-import Nav from './Nav'
-import SideBar from './sideBar/sideBar';
-import Home from './Home';
-import ProjectHome from './ProjectHome';
-import CSVupload from './containers/CSVupload';
+import Home from './containers/Home';
+import ProjectHome from './containers/ProjectHome';
+import Dataset from './containers/Dataset';
 import SessionTraining from './containers/SessionTraining';
 import NetworkSettings from './containers/ParameterSettings';
 import fire from './Fire';
@@ -45,7 +43,7 @@ class App extends Component {
         <Switch>
           <Route path="/" exact component={Home}/>
           <Route path="/project/:id" exact component={ProjectHome}/>
-          <Route path="/dataset/:id" component={CSVupload} />
+          <Route path="/dataset/:id" component={Dataset} />
           <Route path="/sessiontraining" component={SessionTraining} />
           <Route path="/networksettings" component={NetworkSettings} />
         </Switch>

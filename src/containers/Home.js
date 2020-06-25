@@ -1,6 +1,6 @@
 import React, { Component, useState } from 'react';
 import { Redirect } from "react-router-dom";
-import './App.css';
+import '../App.css';
 
 // add later verification if user has made a project before
 

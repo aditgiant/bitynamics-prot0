@@ -1,15 +1,15 @@
 import React, { Component, useEffect } from 'react';
-import './App.css';
-import Nav from './Nav'
-import SideBar from './sideBar/sideBar';
-import Button from './components/Button';
-import Input from './components/Input';  
-import Select from './components/Select';
-import IconTabular from './imgsrc/outputTabular.png';
-import IconTimeSeries from './imgsrc/outputTimeSeries.png';
-import IconImage from './imgsrc/outputImage.png';
+import '../App.css';
+import Nav from '../Nav'
+import SideBar from '../sideBar/sideBar';
+import Button from '../components/Button';
+import Input from '../components/Input';  
+import Select from '../components/Select';
+import IconTabular from '../imgsrc/outputTabular.png';
+import IconTimeSeries from '../imgsrc/outputTimeSeries.png';
+import IconImage from '../imgsrc/outputImage.png';
 import {Container, Row, Col} from 'react-bootstrap';
-import fire, {storage} from './Fire';
+import fire, {storage} from '../Fire';
 
 class ProjectHome extends Component {
     constructor(props) {
@@ -40,7 +40,8 @@ class ProjectHome extends Component {
             if (doc.exists) {
               console.log("componentDidMount-success");
               const board = doc.data();
-              this.setState({ ...this.state, newProject : {
+              this.setState({ ...this.state,
+                newProject : {
                 key: doc.id,
                 projectName:board.projectName,
                 outputType:board.outputType,

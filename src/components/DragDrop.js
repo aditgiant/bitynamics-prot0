@@ -59,6 +59,10 @@ function DragDrop(props) {
       </p>
     ));
 
+// 1.convert this to Class extends Component
+// 2. function to handle Drag and Drop file ->
+// a. if collections.doc(id).dataset.preprocessor doesn't exist, create new one
+// b. if exist, put link in csvDatasetLink parameter
       return (
         <section className="DragDrop">
           <h3 style={{"font-size":"1em"}}><strong>Select dataset</strong></h3>
