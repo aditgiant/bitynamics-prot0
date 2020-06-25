@@ -3,7 +3,7 @@ import '../App.css';
 import fire from '../Fire';
 import Nav from '../Nav'
 import SideBar from '../sideBar/sideBar';
-import DragDrop from '../components/DragDrop';
+import DataSelector from '../components/DataSelector';
 import DataPreprocessor from '../components/DataPreprocessor';
 import DataPreprocessed from '../components/DataPreprocessed';  
 import {Container, Row, Col} from 'react-bootstrap';
@@ -73,10 +73,8 @@ class Dataset extends Component {
       return (
         <div>
         <Container id="home-container">
-          {this.state.step==0 && <DragDrop id={this.state.id}/>}
-          {/* Since the following line has the same condition, merge with previous line */}
+          {this.state.step==0 && <DataSelector id={this.state.id}/>}
           {this.state.step==0 && <button className='btn btn-primary' style={buttonStyle} onClick={this.nextStep}>Choose Dataset</button>}
-          {/* 3. Add function to Add New Collection 'preprocessing' + Load from existing collection 'preprocessing' */}
           {this.state.step==1 && <DataPreprocessor id={this.state.id}/>}
           {this.state.step==1 && <button className='btn btn-secondary' style={changeButtonStyle} onClick={this.previousStep}>Change Dataset</button>}
           {this.state.step==1 && <button className='btn btn-primary' style={buttonStyle} onClick={this.nextStep}>Use dataset</button>}

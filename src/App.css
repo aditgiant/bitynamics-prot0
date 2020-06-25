@@ -292,6 +292,34 @@ input[type=radio]:checked + label>p {
 
 #project-type-descriptions {
   margin-top : 10px;
+  padding:20px;
+}
+
+.data-selector {
+  text-align : left;
+  align-items : center;
+}
+
+.data-uploader {
+  text-align : center;
+  align-items : center;
+  padding:30px;
+  margin-top:10px;
+  margin-bottom:30px;
+  border: 1px;
+  border-radius: 10px;
+  border-style: dashed;
+}
+
+.data-uploader > form {
+  text-align : center;
+  align-items : center;
+}
+
+.data-uploader > form > input {
+  display: inline-block;
+  align-items: center;
+  text-align: center;
 }
 
 .mode-selector{
