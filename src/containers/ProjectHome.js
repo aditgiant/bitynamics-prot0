@@ -20,8 +20,10 @@ class ProjectHome extends Component {
             key:'projectnotfound',
             projectName:'',
             outputType:'',
-            inputType:''
+            inputType:'',
+            userID:''
           },
+          refresh:'',
     
           outputTypes: ['Classification', 'Regression'],
           inputTypes: ['Tabular', 'TimeSeries', 'Image'],    
@@ -29,6 +31,7 @@ class ProjectHome extends Component {
         this.handleProjectName = this.handleProjectName.bind(this);
         this.handleOutputType = this.handleOutputType.bind(this);
         this.handleInputType = this.handleInputType.bind(this);
+        this.submitSaveChanges = this.submitSaveChanges.bind(this);
         // this.handleNextStep = this.handleNextStep.bind(this);
       }
 
@@ -45,7 +48,8 @@ class ProjectHome extends Component {
                 key: doc.id,
                 projectName:board.projectName,
                 outputType:board.outputType,
-                inputType:board.inputType
+                inputType:board.inputType,
+                userID:board.userID
               }});
             } else {
               console.log("No such document!");
@@ -66,7 +70,8 @@ class ProjectHome extends Component {
                 key: doc.id,
                 projectName:board.projectName,
                 outputType:board.outputType,
-                inputType:board.inputType
+                inputType:board.inputType,
+                userID:board.userID
               }});
             } else {
               console.log("No such document!");
@@ -119,6 +124,22 @@ class ProjectHome extends Component {
       }
       }), () => console.log(this.state.newProject))
     }
+
+      submitSaveChanges() {
+        const { projectName, outputType, inputType, userID } = this.state.newProject;
+        const updateRef = fire.firestore().collection('projects').doc(this.state.newProject.key);
+        updateRef.set({
+          projectName,
+          outputType,
+          inputType,
+          userID
+        }).then(
+          window.alert(this.state.newProject.projectName + " updated!")
+          )
+        .catch((error) => {
+          console.error("Error adding document: ", error);
+        });
+      }
       
       render() {
         return (
@@ -221,7 +242,7 @@ class ProjectHome extends Component {
             </div>
 
             <Button 
-                action = {this.handleProjectName}
+                action = {this.submitSaveChanges}
                 type = {'primary'} 
                 title = {'Save changes'} 
                 style = {buttonStyle}
@@ -229,7 +250,7 @@ class ProjectHome extends Component {
             </Container>
           </form>
           <SideBar id={this.state.newProject.key}/>
-          <Nav id={this.state.newProject.key}/>
+          <Nav id={this.state.newProject.key} refresh={this.state.refresh}/>
           </div>
         );
       }
@@ -242,4 +263,4 @@ const buttonStyle = {
     right :'10px'
   }  
 
-  export default ProjectHome;
+export default ProjectHome;

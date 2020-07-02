@@ -37,6 +37,7 @@ class DataPreprocessed extends Component {
   render() {
     return (
       <div>
+          <h3 style={{"font-size":"1em", "color":"#09D48B"}}><strong>Dataset is ready!</strong></h3>
           <h4>props.id {this.props.id}</h4>
           <h4>{this.state.newDataset.csvDatasetName}</h4>
           <p>{this.state.newDataset.csvDatasetLink}</p>

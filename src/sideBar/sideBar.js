@@ -32,9 +32,7 @@ class sideBar extends Component {
   render() {
     return (
       <div className="sidebar">
-        <div className="row">
           <ModelComponent id={this.state.id}/>
-        </div>
       </div>
     );
   }

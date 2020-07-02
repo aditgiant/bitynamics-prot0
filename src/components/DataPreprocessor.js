@@ -77,8 +77,9 @@ class DataPreprocessor extends Component {
   render() {
     return (
       <div>
+      <h3 style={{"font-size":"1em"}}>Select dataset&nbsp;&gt;&nbsp;<strong>Prepare dataset</strong></h3>
       <form onSubmit={this.handleFormSubmit}>
-      <h1>{this.state.id}</h1>
+        <h1>{this.state.newDataset.csvDatasetName}</h1>
         <div id="dataset-name" className="form-group row">
         <label for={'dataset-name'} className="form-label col-sm-3">Name</label>
                 <div className="col-sm-6">

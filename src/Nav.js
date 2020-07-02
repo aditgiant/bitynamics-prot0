@@ -36,8 +36,7 @@ class Nav extends Component{
     }    
 
     componentDidUpdate(prevProps) {
-      if (this.props.id !== prevProps.id) {
-        console.log(this.props.id);
+      // if (this.props.id !== prevProps.id) {
         const ref = fire.firestore().collection('projects').doc(this.props.id);
         ref.get().then((doc) => {
           if (doc.exists) {
@@ -49,8 +48,8 @@ class Nav extends Component{
             console.log("No such document!");
           }
         });
-      }
-    console.log("componentDidUpdate")
+      // }
+    // console.log("componentDidUpdate : "+this.state.projectName)
     }    
 
       handleMouseDown(e) {
