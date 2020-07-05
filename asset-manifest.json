@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/bitynamics-prot0/static/css/main.ab20aec8.chunk.css",
-    "main.js": "/bitynamics-prot0/static/js/main.ff8ff99e.chunk.js",
-    "main.js.map": "/bitynamics-prot0/static/js/main.ff8ff99e.chunk.js.map",
+    "main.css": "/bitynamics-prot0/static/css/main.8b0978d1.chunk.css",
+    "main.js": "/bitynamics-prot0/static/js/main.30aa2cd6.chunk.js",
+    "main.js.map": "/bitynamics-prot0/static/js/main.30aa2cd6.chunk.js.map",
     "runtime-main.js": "/bitynamics-prot0/static/js/runtime-main.9df27e7b.js",
     "runtime-main.js.map": "/bitynamics-prot0/static/js/runtime-main.9df27e7b.js.map",
     "static/css/2.627926fe.chunk.css": "/bitynamics-prot0/static/css/2.627926fe.chunk.css",
-    "static/js/2.c40d0e32.chunk.js": "/bitynamics-prot0/static/js/2.c40d0e32.chunk.js",
-    "static/js/2.c40d0e32.chunk.js.map": "/bitynamics-prot0/static/js/2.c40d0e32.chunk.js.map",
+    "static/js/2.b42ca6bd.chunk.js": "/bitynamics-prot0/static/js/2.b42ca6bd.chunk.js",
+    "static/js/2.b42ca6bd.chunk.js.map": "/bitynamics-prot0/static/js/2.b42ca6bd.chunk.js.map",
     "index.html": "/bitynamics-prot0/index.html",
-    "precache-manifest.55c812760138d0ca7bccf999827a65bb.js": "/bitynamics-prot0/precache-manifest.55c812760138d0ca7bccf999827a65bb.js",
+    "precache-manifest.47052a53d54d30aa030e267550e4d5fc.js": "/bitynamics-prot0/precache-manifest.47052a53d54d30aa030e267550e4d5fc.js",
     "service-worker.js": "/bitynamics-prot0/service-worker.js",
     "static/css/2.627926fe.chunk.css.map": "/bitynamics-prot0/static/css/2.627926fe.chunk.css.map",
-    "static/css/main.ab20aec8.chunk.css.map": "/bitynamics-prot0/static/css/main.ab20aec8.chunk.css.map",
-    "static/js/2.c40d0e32.chunk.js.LICENSE.txt": "/bitynamics-prot0/static/js/2.c40d0e32.chunk.js.LICENSE.txt",
+    "static/css/main.8b0978d1.chunk.css.map": "/bitynamics-prot0/static/css/main.8b0978d1.chunk.css.map",
+    "static/js/2.b42ca6bd.chunk.js.LICENSE.txt": "/bitynamics-prot0/static/js/2.b42ca6bd.chunk.js.LICENSE.txt",
     "static/media/advancedTrainingMode.png": "/bitynamics-prot0/static/media/advancedTrainingMode.3af5f26b.png",
     "static/media/basicTrainingMode.png": "/bitynamics-prot0/static/media/basicTrainingMode.6713782e.png",
     "static/media/iconCSV.png": "/bitynamics-prot0/static/media/iconCSV.7d809657.png",
@@ -24,8 +24,8 @@
   "entrypoints": [
     "static/js/runtime-main.9df27e7b.js",
     "static/css/2.627926fe.chunk.css",
-    "static/js/2.c40d0e32.chunk.js",
-    "static/css/main.ab20aec8.chunk.css",
-    "static/js/main.ff8ff99e.chunk.js"
+    "static/js/2.b42ca6bd.chunk.js",
+    "static/css/main.8b0978d1.chunk.css",
+    "static/js/main.30aa2cd6.chunk.js"
   ]
 }
