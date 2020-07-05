@@ -27,11 +27,13 @@ class ProjectManager extends Component {
     onCollectionUpdate = (querySnapshot) => {
         const boards = [];
         querySnapshot.forEach((doc) => {
-          const { projectName, userID } = doc.data();
+          const { projectName, userID, outputType, inputType } = doc.data();
           boards.push({
             key: doc.id,
             projectName, // DocumentSnapshot
-            userID
+            userID,
+            outputType,
+            inputType
           });
         });
         this.setState({
@@ -92,15 +94,15 @@ class ProjectManager extends Component {
             <table class="table table-stripe">
               <thead>
                 <tr>
-                  <th>Project Name</th>
-                  <th>User ID</th>
+                  <th style={{'minWidth':'20vw'}}>Project Name</th>
+                  <th style={{'minWidth':'30vw'}}>Type</th>
                 </tr>
               </thead>
               <tbody>
                 {this.state.boards.map(board =>
                   <tr>
                     <td><Link to={`/project/${board.key}`} onClick={this.props.handleMouseDown}>{board.projectName}</Link></td>
-                    <td>{board.userID}</td>
+                    <td>{board.inputType} {board.outputType}</td>
                     <td/>
                   </tr>
                 )}
