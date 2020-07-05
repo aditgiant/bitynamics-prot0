@@ -4,6 +4,7 @@ html, body{
   margin:0;
   display:block;
    position:relative;
+  font-family: 'Rubik', sans-serif;
 }
 .App {
   text-align: center;
@@ -265,7 +266,6 @@ Error {
 }
 
 input[type=radio] + label {
-  padding:5px;
   display: inline-block;
   width:auto;
   cursor:pointer;
@@ -330,7 +330,7 @@ input[type=radio]:checked + label>p {
 
 #project-type-descriptions {
   margin-top : 10px;
-  padding:20px;
+  /* padding:20px; */
 }
 
 .data-selector {

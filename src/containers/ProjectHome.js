@@ -166,6 +166,7 @@ class ProjectHome extends Component {
                 <p><strong>Type</strong></p>
             </div>
             <div id="output-type-option" className="col-sm-8">
+                <div>
                 <div id="output-type">
                   <input 
                       id="Classification" class="input-hidden" type="radio" onChange={this.handleOutputType} checked={this.state.newProject.outputType === "Classification"} value="Classification"
@@ -180,6 +181,8 @@ class ProjectHome extends Component {
                     <p>Regression</p>
                   </label>
                 </div>
+                </div>
+                <div>
                 <div className="input-type">
                 {this.state.newProject.outputType === 'Classification' && (
                 <div id="input-type-classification">
@@ -224,6 +227,7 @@ class ProjectHome extends Component {
                     </label>
                 </div>
                 )}
+                </div>
                 </div>
 
             <div id="project-type-descriptions" className="project-type-descriptions">

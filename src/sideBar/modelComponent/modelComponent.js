@@ -49,13 +49,13 @@ class modelComponent extends Component {
                Dataset
               </div></li>
             </Link>}
-            {this.props.location.pathname === "/sessiontraining/" && <Link className="router-link" style={{color:'white'}} to='/sessiontraining'>
+            {this.props.location.pathname === "/sessiontraining/"+this.props.id && <Link className="router-link" style={{color:'white'}} to={`/sessiontraining/${this.props.id}`}>
             <li id="side-menu-active"><div className="fas fa-list fa-2x"></div>
               <div>
                 Session 1
               </div></li>
             </Link>}
-            {this.props.location.pathname !== "/sessiontraining/" && <Link className="router-link" style={{color:'white'}} to='/sessiontraining'>
+            {this.props.location.pathname !== "/sessiontraining/"+this.props.id && <Link className="router-link" style={{color:'white'}} to={`/sessiontraining/${this.props.id}`}>
             <li><div className="fas fa-list fa-2x"></div>
               <div>
                 Session 1

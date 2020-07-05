@@ -1,6 +1,7 @@
 import React, {Component} from 'react';  
 import 'react-bootstrap';
 import Collapse from 'react-bootstrap/Collapse';
+import iconCSV from '../imgsrc/iconCSV.png'
 import fire from '../Fire';
 
 class DataPreprocessor extends Component {  
@@ -9,6 +10,10 @@ class DataPreprocessor extends Component {
     
         this.state = {
           id:this.props.id,
+          projectType: {
+            outputType:'',
+            inputType:''
+          },
           open:
             {
             advanced:false
@@ -16,6 +21,7 @@ class DataPreprocessor extends Component {
           newDataset: {
             csvDatasetName:'',
             csvDatasetLink:'',
+            csvDatasetLinkPrep:'',
             header:false,
             missingEncoded:'',
             removeMissingData:true,
@@ -29,31 +35,54 @@ class DataPreprocessor extends Component {
         this.handleDatasetParameter = this.handleDatasetParameter.bind(this);
         this.handleDatasetChecklist = this.handleDatasetChecklist.bind(this);
         this.handleCollapsible = this.handleCollapsible.bind(this);
+        this.submitPreprocessor = this.submitPreprocessor.bind(this);
       }
       
-      componentDidMount() {
+    componentDidMount() {
+        const refMain = fire.firestore().collection('projects').doc(this.state.id);
         const ref = fire.firestore().collection('projects').doc(this.state.id).collection('csvDataset').doc('preprocessor');
+        refMain.get().then((doc)=>{
+          const boardMain = doc.data();
+          this.setState({...this.state, projectType:{
+            outputType: boardMain.outputType,
+            inputType: boardMain.inputType
+          }})
+        })
         ref.get().then((doc) => {
           if (doc.exists) {
             console.log("componentDidMount-success");
             const board = doc.data();
-            this.setState({ ...this.state, newDataset : {
+            this.setState(prevState => ({ newDataset : 
+              {...prevState.newDataset,
               csvDatasetName : board.csvDatasetName,
+              csvDatasetLink:board.csvDatasetLink,
+              csvDatasetLinkPrep:board.csvDatasetLinkPrep,
+              header:board.header,
+              missingEncoded:board.missingEncoded,
+              removeMissingData:board.removeMissingData,
+              featuresPerTime:board.featuresPerTime,
+              imageDimensionW:board.imageDimensionW,
+              imageDimensionH:board.imageDimensionH,
+              multipleOutputs:board.multipleOutputs,
+              featureSelection:board.featureSelection,
+              normalization:board.normalization,
               // Continue with the rest of the parameters
               // Fill to the form below
-            }});
+            }
+          }))
           } else {
             console.log("No such document!");
           }
         });
       console.log("componentDidMount");
-      }
+    }
 
-      handleDatasetParameter(e) {
+    handleDatasetParameter(e) {
         let value = e.target.value;
         let name = e.target.name;
         this.setState( prevState => ({ newDataset : 
-         {...prevState.newDataset, [name]: value
+         {...prevState.newDataset,
+          [name]: value
          }
          }), () => console.log(this.state.newDataset))
     }
@@ -62,10 +91,12 @@ class DataPreprocessor extends Component {
       let value = e.target.checked;
       let name = e.target.name;
       this.setState( prevState => ({ newDataset : 
-       {...prevState.newDataset, [name]: value
+       {...prevState.newDataset,
+        [name]: value
        }
        }), () => console.log(this.state.newDataset))
       }
+      
     handleCollapsible() {
       console.log(this.state.open.advanced);
       this.setState(prevState => 
@@ -74,13 +105,42 @@ class DataPreprocessor extends Component {
            () => console.log(this.state.open.advanced))
     }
 
+    submitPreprocessor(e) {
+      e.preventDefault();
+      const updateRef = fire.firestore().collection('projects').doc(this.state.id).collection('csvDataset').doc('preprocessor');
+      // temporarily dummy
+      this.setState( prevState => ({ newDataset : 
+        {...prevState.newDataset,
+         csvDatasetLinkPrep:'dummy',
+        }
+        }), () => 
+          {console.log (this.state.newDataset.csvDatasetLinkPrep);
+          const { csvDatasetName, csvDatasetLink, csvDatasetLinkPrep, header, missingEncoded,
+              removeMissingData, featuresPerTime, imageDimensionW, imageDimensionH,
+              multipleOutputs, featureSelection, normalization } = this.state.newDataset;
+          updateRef.set({
+            csvDatasetName, csvDatasetLink, csvDatasetLinkPrep, header, missingEncoded,
+            removeMissingData, featuresPerTime, imageDimensionW, imageDimensionH,
+            multipleOutputs, featureSelection, normalization
+            })
+            .then
+            (() => {
+              window.alert(this.state.newDataset.csvDatasetName + " updated!")
+              this.props.nextStep()})
+            .catch((error) => {
+            console.error("Error adding document: ", error);
+          })})
+    }
+
   render() {
     return (
       <div>
       <h3 style={{"font-size":"1em"}}>Select dataset&nbsp;&gt;&nbsp;<strong>Prepare dataset</strong></h3>
       <form onSubmit={this.handleFormSubmit}>
-        <h1>{this.state.newDataset.csvDatasetName}</h1>
-        <div id="dataset-name" className="form-group row">
+        <h1 style={{'height':'1em', 'verticalAlign':'center'}}><img style={{'maxHeight':'75%'}}src={iconCSV}/>&nbsp;{this.state.newDataset.csvDatasetName}</h1>
+        <h4>Prepare dataset for a {this.state.projectType.inputType} {this.state.projectType.outputType} project</h4>
+        <br/>
+        {/* <div id="dataset-name" className="form-group row">
         <label for={'dataset-name'} className="form-label col-sm-3">Name</label>
                 <div className="col-sm-6">
                   <input
@@ -93,8 +153,10 @@ class DataPreprocessor extends Component {
                     placeholder="This cannot be empty"
                     />
                 </div>
-        </div>
+        </div> */}
         
+        <div style={{'height':'90%', 'overflowY': 'auto', 'overflowX':'hidden'}}>
+        {(this.state.projectType.inputType!=="Image" && this.state.projectType.outputType!="Classification") &&
         <div id="dataset-header" className="form-group row" >
         <label for={'header'} className="form-label col-sm-3">First row as header</label>
                 <div className="col-sm-6">
@@ -107,7 +169,7 @@ class DataPreprocessor extends Component {
                     onChange={this.handleDatasetChecklist}
                     />
                 </div>
-        </div>
+        </div>}
 
         <div id="dataset-missing-encoded" className="form-group row">
                 <label for={'missingEncoded'} className="form-label col-sm-3">Missing values encoded</label>
@@ -138,6 +200,7 @@ class DataPreprocessor extends Component {
                 </div>
         </div>
 
+        {this.state.projectType.inputType=="TimeSeries" &&
         <div id="dataset-features-pertime" className="form-group row">
                 <label for={'featuresPerTime'} className="form-label col-sm-3">Number of features</label>
                 <div className="col-sm-6">
@@ -151,8 +214,9 @@ class DataPreprocessor extends Component {
                     placeholder="Type numbers"
                     />
                 </div>
-        </div>
+        </div>}
 
+        {this.state.projectType.inputType=="Image" &&
         <div id="dataset-image-dimension" className="form-group row">
                 <label className="form-label col-sm-3">Image dimension</label>
                 <div className="col-sm-6">
@@ -181,14 +245,16 @@ class DataPreprocessor extends Component {
                     />
                   </div>  
                 </div>
-        </div>
+        </div>}
         
+        {this.state.projectType.inputType!=="Image" &&
         <button type='button' className='btn btn-secondary'
-                onClick = {this.handleCollapsible}>Advanced settings</button>
+                onClick = {this.handleCollapsible}>Advanced settings</button>}
 
 
         <Collapse in={this.state.open.advanced}>
         <div>
+        <br/>
         <div id="dataset-multiple-outputs" className="form-group row">
                 <label for={'multipleOutputs'} className="form-label col-sm-3">Number of outputs</label>
                 <div className="col-sm-6">
@@ -204,6 +270,7 @@ class DataPreprocessor extends Component {
                 </div>
         </div>
 
+        {this.state.projectType.inputType=="Tabular" &&
         <div id="dataset-feature-selection" className="form-group row">
                 <label for={'featureSelection'} className="form-label col-sm-3">Feature selection</label>
                 <div className="col-sm-6">
@@ -216,8 +283,9 @@ class DataPreprocessor extends Component {
                     onChange={this.handleDatasetChecklist}
                     />
                 </div>
-        </div>
+        </div>}
 
+        {this.state.projectType.outputType=="Regression" &&
         <div id="dataset-normalization" className="form-group row">
                 <label for={'normalization'} className="form-label col-sm-3">Normalization</label>
                 <div className="col-sm-6">
@@ -230,9 +298,11 @@ class DataPreprocessor extends Component {
                     onChange={this.handleDatasetChecklist}
                     />
                 </div>
-        </div>
+        </div>}
         </div>
         </Collapse>
+        </div>
+        <button className='btn btn-primary' style={buttonStyle} onClick={this.submitPreprocessor}>Next&nbsp;&gt;</button>
       </form>
       </div>
     );
@@ -241,7 +311,10 @@ class DataPreprocessor extends Component {
 
 
 const buttonStyle = {
-    margin : '10px 10px 10px 0px'
+    margin : '10px 10px 10px 0px',
+    position : 'absolute',
+    bottom : '20px',
+    right:'10px'
   }
 
 export default DataPreprocessor;

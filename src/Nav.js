@@ -68,7 +68,7 @@ class Nav extends Component{
     render() {
     return(
         <div id="top-bar" tabs>
-            <div id="project-switch" onClick={this.handleMouseDown} visible={this.state.visible}>
+            <div id="project-switch" style={{'cursor':'pointer'}} onClick={this.handleMouseDown} visible={this.state.visible}>
                 <img id="project-icon-top" src={Project}/>
                 <div id="project-title-top"><strong>{this.state.projectName}</strong> </div>
                 <i class="fas fa-caret-down"></i>
