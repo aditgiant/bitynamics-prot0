@@ -57,7 +57,7 @@ const ComparedModels = (props) => {
 
   return (
     <div>
-      <Container>
+      <Container id="models-container">
         <div className="compared-model-header mt-5">MODEL COMPARISON</div>
         <Link to={`/sessionmodel/${sessionId}`}>
           <i class="fas fa-angle-left mr-2"></i>

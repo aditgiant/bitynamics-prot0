@@ -79,7 +79,7 @@ class TopListModel extends Component {
       <div>
         <Container id="models-container">
           <div style={{height: '100vh'}}>
-            <div className="models-description mt-5">
+            <div className="models-description mt-2">
               We have trained 10 model combinations. Here are top 5 models with
               the best performances
             </div>

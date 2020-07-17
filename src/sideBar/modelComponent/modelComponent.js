@@ -105,7 +105,7 @@ class modelComponent extends Component {
                 style={{color: 'white'}}
                 to={`/sessionmodel/${this.props.id}`}>
                 <li id="side-menu-active">
-                  <div className="fas fa-list fa-2x"></div>
+                  <i class="fa fa-th-large fa-2x" aria-hidden="true"></i>
                   <div>Models </div>
                 </li>
               </Link>
@@ -117,7 +117,8 @@ class modelComponent extends Component {
                 style={{color: 'white'}}
                 to={`/sessionmodel/${this.props.id}`}>
                 <li>
-                  <div className="fas fa-list fa-2x"></div>
+                  <i class="fa fa-th-large fa-2x" aria-hidden="true"></i>
+
                   <div>Models </div>
                 </li>
               </Link>
