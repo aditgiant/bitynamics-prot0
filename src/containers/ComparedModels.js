@@ -12,7 +12,6 @@ const ComparedModels = (props) => {
   const train_models = props.models.models;
   const sessionId = props.match.params.id;
   console.log(JSON.parse(localStorage.getItem('selectedmodels')));
-  // const selectedModels = props.models.selectedModels;
   const selectedModels = JSON.parse(localStorage.getItem('selectedmodels'));
 
   const getModelData = (id) => {
@@ -58,7 +57,7 @@ const ComparedModels = (props) => {
   return (
     <div>
       <Container id="models-container">
-        <div className="compared-model-header mt-5">MODEL COMPARISON</div>
+        <h3>Model Comparison</h3>
         <Link to={`/sessionmodel/${sessionId}`}>
           <i class="fas fa-angle-left mr-2"></i>
           <span> Back to Top Models</span>
@@ -77,12 +76,11 @@ const ComparedModels = (props) => {
                     {(result.mean_val_metric * 100).toFixed(2)}%
                   </div>
                 ))}
-                <Link to={`/models/${id}`}>
+                <Link to={`/evaluate/${sessionId}/${id}`}>
                   <button type="button" className="btn btn-detail">
                     Details
                   </button>
                 </Link>
-
                 <button className="btn btn-yellow" type="button">
                   Export Model
                 </button>

@@ -14,7 +14,6 @@ class modelComponent extends Component {
   }
 
   render() {
-    console.log(this.props.location.pathname);
     return (
       <div className="model-component">
         <div className="side-menu">
@@ -104,6 +103,19 @@ class modelComponent extends Component {
                 className="router-link"
                 style={{color: 'white'}}
                 to={`/sessionmodel/${this.props.id}`}>
+                <li id="side-menu-active">
+                  <i class="fa fa-th-large fa-2x" aria-hidden="true"></i>
+                  <div>Models </div>
+                </li>
+              </Link>
+            )}
+
+            {this.props.location.pathname ===
+              '/evaluate/' + this.props.id + '/' + this.props.type && (
+              <Link
+                className="router-link"
+                style={{color: 'white'}}
+                to={`/evaluate/${this.props.id}/${this.props.type}`}>
                 <li id="side-menu-active">
                   <i class="fa fa-th-large fa-2x" aria-hidden="true"></i>
                   <div>Models </div>

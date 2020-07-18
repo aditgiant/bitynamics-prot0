@@ -122,10 +122,10 @@ const Prediction = (props) => {
   // if (data.length === 0) {
   return (
     <div>
-      <Container>
+      <Container id="models-container">
         <div className="container" style={{height: '100vh'}}>
           <div className="menu-list">
-            <Menu />
+            <Menu sessionId={sessionId} modelId={modelId} />
           </div>
           {loadData()}
         </div>

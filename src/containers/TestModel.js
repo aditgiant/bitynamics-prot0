@@ -16,10 +16,10 @@ function TestModel(props) {
 
   return (
     <div>
-      <Container>
+      <Container id="models-container">
         <div style={{height: '100vh'}}>
           <div className="menu-list">
-            <Menu />
+            <Menu sessionId={sessionId} modelId={modelId} />
           </div>
           <div class="card-test text-left">
             <div className="row analytics-summary">

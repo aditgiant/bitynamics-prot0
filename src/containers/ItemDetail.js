@@ -56,13 +56,13 @@ class ItemDetail extends Component {
 
     return (
       <div>
-        <Container>
+        <Container id="models-container">
           <div className="analytics">
             <div className="menu-list">
               <Menu sessionId={sessionId} modelId={modelId} />
             </div>
             <div>
-              <h2>Model {modelId}</h2>
+              <h3>Model {modelId}</h3>
               <div className="row">
                 <div className="col-md-10 ">
                   <Link to={`/sessionmodel/${sessionId}`}>
