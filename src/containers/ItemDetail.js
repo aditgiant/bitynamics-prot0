@@ -154,12 +154,12 @@ class ItemDetail extends Component {
                 <OptimizedParameter param={param} />
               </div>
               <div className="analytics-summary mt-5">
-                <div className="col-md-6">
-                  <NetworkArtchitecture />
-                </div>
-                <div className="col-md-6 white-card ">
-                  <OutputChart />
-                </div>
+                <NetworkArtchitecture />
+              </div>
+
+              <OutputChart />
+              <div className="analytics-summary mt-5">
+                <div className="white-card "></div>
               </div>
             </div>
 

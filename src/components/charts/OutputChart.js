@@ -429,7 +429,7 @@ const OutputChart = () => {
   };
   console.log(state);
   return (
-    <div>
+    <div style={{backgroundColor: 'white'}}>
       <Scatter
         data={state}
         options={{
@@ -441,6 +441,7 @@ const OutputChart = () => {
             fontFamily: 'Lato',
             fontColor: '#9B9B9B',
             fontStyle: 400,
+            xAxis: 'Principle Component 1',
           },
           legend: {
             display: true,

@@ -76,16 +76,18 @@ const Prediction = (props) => {
           <ReactFileReader handleFiles={handleFiles} fileTypes={'.csv'}>
             <div class="card-drop-file">
               <div className="row">
-                <div>
-                  <i
-                    className="fas fa-file-csv fa-4x"
-                    style={{color: '#005791'}}></i>
-                  <p style={{textDecoration: 'underline', color: '#005791'}}>
-                    template
-                  </p>
+                <div class="col">
+                  <div>
+                    <i
+                      className="fas fa-file-csv fa-4x ml-2"
+                      style={{color: '#005791'}}></i>
+                    <p style={{textDecoration: 'underline', color: '#005791'}}>
+                      Template
+                    </p>
+                  </div>
                 </div>
 
-                <div className="text-drop-file ml-4 mt-4">
+                <div className=" col text-drop-file ml-4 mt-4">
                   Drop your file or{' '}
                   <strong style={{color: '#005791'}}>Browse here!</strong>
                 </div>
@@ -123,12 +125,10 @@ const Prediction = (props) => {
   return (
     <div>
       <Container id="models-container">
-        <div className="container" style={{height: '100vh'}}>
-          <div className="menu-list">
-            <Menu sessionId={sessionId} modelId={modelId} />
-          </div>
-          {loadData()}
+        <div className="menu-list">
+          <Menu sessionId={sessionId} modelId={modelId} />
         </div>
+        {loadData()}
       </Container>
       <SideBar id={sessionId} />
       <Nav id={sessionId} />
