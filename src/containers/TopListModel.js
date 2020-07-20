@@ -19,16 +19,13 @@ class TopListModel extends Component {
   }
 
   render() {
-    console.log(this.state.id);
     const models = this.props.models.models;
-    console.log(models);
     const selectedModels = this.props.models.selectedModels;
-
+    console.log(selectedModels[0]);
     let storage = [];
     storage = JSON.parse(localStorage.getItem('selectedmodels')) || [];
-    console.log(storage);
+
     const handleCompareModel = () => {
-      console.log(storage.length);
       if (storage.length == 0) {
         return (
           <div>
@@ -78,8 +75,9 @@ class TopListModel extends Component {
     return (
       <div>
         <Container id="models-container">
+          <h3>Top List Model</h3>
           <div style={{height: '100vh'}}>
-            <div className="models-description mt-5">
+            <div className="models-description mt-2">
               We have trained 10 model combinations. Here are top 5 models with
               the best performances
             </div>
@@ -113,7 +111,6 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 const mapStateToProps = (state) => {
-  console.log(state);
   return {
     models: state.models,
   };

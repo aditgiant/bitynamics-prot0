@@ -3,11 +3,12 @@ import {Link} from 'react-router-dom';
 import * as ROUTES from '../ROUTES';
 import {currentmodel, currentPage} from '../redux/actions/models';
 import {connect} from 'react-redux';
-
+import {withRouter} from 'react-router-dom';
 const Menu = (props) => {
   const {models, sessionId, modelId} = props;
   const currentPage = models.currentPage;
   console.log(currentPage);
+  console.log(props.location.pathname);
 
   const resetStyling = () => {
     document.getElementById('menu-evaluate').style.backgroundColor =
@@ -66,7 +67,7 @@ const Menu = (props) => {
           </Link>
         </li>
         <li>
-          <Link to={ROUTES.PREDICTION}>
+          <Link to={`/prediction/${sessionId}/${modelId}`}>
             <a
               id="menu-prediction"
               onClick={() => props.currentPage('prediction')}>
@@ -91,4 +92,4 @@ const mapDispatchToProps = (dispatch) => {
     currentPage: (page) => dispatch(currentPage(page)),
   };
 };
-export default connect(mapStateToProps, mapDispatchToProps)(Menu);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Menu));

@@ -13,11 +13,9 @@ const Model = (props) => {
     sessionId,
   } = props;
 
-  console.log(sessionId);
   let [select, setSelect] = useState(false);
   let storage = [];
   storage = JSON.parse(localStorage.getItem('selectedmodels')) || [];
-  console.log(storage);
 
   function textStyles(n) {
     if (n >= 0.9) {

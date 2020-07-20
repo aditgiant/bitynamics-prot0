@@ -12,8 +12,8 @@ const ComparedModels = (props) => {
   const train_models = props.models.models;
   const sessionId = props.match.params.id;
   console.log(JSON.parse(localStorage.getItem('selectedmodels')));
-  // const selectedModels = props.models.selectedModels;
   const selectedModels = JSON.parse(localStorage.getItem('selectedmodels'));
+  console.log(selectedModels);
 
   const getModelData = (id) => {
     return train_models.filter((train_model) => train_model.id == id);
@@ -57,8 +57,8 @@ const ComparedModels = (props) => {
 
   return (
     <div>
-      <Container>
-        <div className="compared-model-header mt-5">MODEL COMPARISON</div>
+      <Container id="models-container">
+        <h3>Model Comparison</h3>
         <Link to={`/sessionmodel/${sessionId}`}>
           <i class="fas fa-angle-left mr-2"></i>
           <span> Back to Top Models</span>
@@ -77,15 +77,22 @@ const ComparedModels = (props) => {
                     {(result.mean_val_metric * 100).toFixed(2)}%
                   </div>
                 ))}
-                <Link to={`/models/${id}`}>
+                <Link to={`/evaluate/${sessionId}/${id}`}>
                   <button type="button" className="btn btn-detail">
                     Details
                   </button>
                 </Link>
 
-                <button className="btn btn-yellow" type="button">
+                <a
+                  href={
+                    'data:text/json;charset=utf-8,' +
+                    encodeURIComponent(JSON.stringify(getModelData(id).param))
+                  }
+                  download={'Model ' + id + ' ' + Date() + '.json'}
+                  type="button"
+                  className="btn btn-yellow">
                   Export Model
-                </button>
+                </a>
               </th>
             ))}
           </tr>

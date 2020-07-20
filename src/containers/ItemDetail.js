@@ -48,21 +48,35 @@ class ItemDetail extends Component {
     const model = models_[0];
     const training = model.training;
     const param = models[0].param;
+    console.log(param);
     const max_accuracy_train = Math.max(...training.metric);
     const max_loss_train = Math.max(...training.loss);
 
     const max_accuracy_validation = Math.max(...training.val_metric);
     const max_loss_validation = Math.max(...training.val_loss);
 
+    const exportModel = (exportObject, exportName) => {
+      console.log('export models');
+
+      var dataStr =
+        'data:text/json;charset=utf-8,' +
+        encodeURIComponent(JSON.stringify(exportObject));
+      var downloadAnchorNode = document.createElement('a');
+      downloadAnchorNode.setAttribute('href', dataStr);
+      downloadAnchorNode.setAttribute('download', exportName + '.json');
+      document.appendChild(downloadAnchorNode);
+      downloadAnchorNode.click();
+      downloadAnchorNode.remove();
+    };
     return (
       <div>
-        <Container>
+        <Container id="models-container">
           <div className="analytics">
             <div className="menu-list">
               <Menu sessionId={sessionId} modelId={modelId} />
             </div>
             <div>
-              <h2>Model {modelId}</h2>
+              <h3>Model {modelId}</h3>
               <div className="row">
                 <div className="col-md-10 ">
                   <Link to={`/sessionmodel/${sessionId}`}>
@@ -72,9 +86,16 @@ class ItemDetail extends Component {
                 </div>
 
                 <div className="col-md-2">
-                  <button type="button" className="btn btn-yellow">
+                  <a
+                    href={
+                      'data:text/json;charset=utf-8,' +
+                      encodeURIComponent(JSON.stringify(param))
+                    }
+                    download={'Model ' + Date() + '.json'}
+                    type="button"
+                    className="btn btn-yellow">
                     Export Model
-                  </button>
+                  </a>
                 </div>
               </div>
               <div className="row">
@@ -154,12 +175,12 @@ class ItemDetail extends Component {
                 <OptimizedParameter param={param} />
               </div>
               <div className="analytics-summary mt-5">
-                <div className="col-md-6">
-                  <NetworkArtchitecture />
-                </div>
-                <div className="col-md-6 white-card ">
-                  <OutputChart />
-                </div>
+                <NetworkArtchitecture />
+              </div>
+
+              <OutputChart />
+              <div className="analytics-summary mt-5">
+                <div className="white-card "></div>
               </div>
             </div>
 
