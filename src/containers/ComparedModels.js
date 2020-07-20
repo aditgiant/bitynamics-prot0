@@ -13,6 +13,7 @@ const ComparedModels = (props) => {
   const sessionId = props.match.params.id;
   console.log(JSON.parse(localStorage.getItem('selectedmodels')));
   const selectedModels = JSON.parse(localStorage.getItem('selectedmodels'));
+  console.log(selectedModels);
 
   const getModelData = (id) => {
     return train_models.filter((train_model) => train_model.id == id);
@@ -81,9 +82,17 @@ const ComparedModels = (props) => {
                     Details
                   </button>
                 </Link>
-                <button className="btn btn-yellow" type="button">
+
+                <a
+                  href={
+                    'data:text/json;charset=utf-8,' +
+                    encodeURIComponent(JSON.stringify(getModelData(id).param))
+                  }
+                  download={'Model ' + id + ' ' + Date() + '.json'}
+                  type="button"
+                  className="btn btn-yellow">
                   Export Model
-                </button>
+                </a>
               </th>
             ))}
           </tr>
