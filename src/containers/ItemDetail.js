@@ -70,7 +70,7 @@ class ItemDetail extends Component {
     };
     return (
       <div>
-        <Container id="models-container">
+        <Container id="training-container">
           <div className="analytics">
             <div className="menu-list">
               <Menu sessionId={sessionId} modelId={modelId} />
@@ -101,6 +101,7 @@ class ItemDetail extends Component {
               <div className="row">
                 <div className="accuracy col-md-6">
                   <div className="accuracy-chart">
+                    <div class="label-metrics mb-3">Accuracy per Epoch</div>
                     <AccuracyCharts
                       accuracy={training.metric}
                       val_accuracy={training.val_metric}
@@ -128,6 +129,7 @@ class ItemDetail extends Component {
                 </div>
                 <div className="loss col-md-6">
                   <div className="accuracy-chart">
+                    <div class="label-metrics mb-3">Loss per Epoch</div>
                     <LossCharts
                       loss={training.loss}
                       val_loss={training.val_loss}
@@ -156,9 +158,9 @@ class ItemDetail extends Component {
               <div className="row mt-3 analytics-summary">
                 <div class="card-analytics text-left col-md-6">
                   <div class="card-body">
-                    <div class="header-label">Training Time</div>
+                    <div class="label-metrics">Training Time</div>
                     <div className="row">
-                      <div className="col-lg-8">
+                      <div className="col-lg-8 mt-3">
                         <DurationCharts />
                       </div>
                       <div className="col-lg-4">
@@ -174,11 +176,14 @@ class ItemDetail extends Component {
               <div className="analytics-summary mt-3">
                 <OptimizedParameter param={param} />
               </div>
-              <div className="analytics-summary mt-5">
+              {/* <div className="analytics-summary mt-5">
                 <NetworkArtchitecture />
+              </div> */}
+              <div className="card-analytics p-3">
+                <div class="label-metrics mb-3">Training Output</div>
+                <OutputChart />
               </div>
 
-              <OutputChart />
               <div className="analytics-summary mt-5">
                 <div className="white-card "></div>
               </div>

@@ -19,7 +19,7 @@ const DurationCharts = (props) => {
       options={{
         legend: {
           display: true,
-          position: 'bottom',
+          position: 'left',
         },
       }}
     />

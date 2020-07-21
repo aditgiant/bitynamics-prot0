@@ -5,7 +5,7 @@ class Recommendation extends Component {
     return (
       <div class="card-tips">
         <div class="card-body">
-          <div className="header-label">Improvement Tips</div>
+          <div className="label-metrics">Improvement Tips</div>
           <div className="row m-3">
             <i
               className="fa fa-lightbulb fa-3x mr-3 "

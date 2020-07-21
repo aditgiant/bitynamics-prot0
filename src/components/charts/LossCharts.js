@@ -55,29 +55,28 @@ const LossCharts = (props) => {
         data={state}
         id="loss-chart"
         options={{
-          title: {
-            display: true,
-            text: 'Loss per Epoch',
-            fontSize: 16,
-            position: 'top',
-            fontFamily: 'Lato',
-            fontColor: '#9B9B9B',
-            fontStyle: 400,
-          },
+          // title: {
+          //   display: true,
+          //   text: 'Loss per Epoch',
+          //   fontSize: 16,
+          //   position: 'top',
+          //   fontFamily: 'Lato',
+          //   fontColor: '#9B9B9B',
+          //   fontStyle: 400,
+          // },
           legend: {
             display: true,
             position: 'bottom',
           },
         }}
       />
-      <a
+      <button
         onClick={() => downloadChart()}
         id="download-chart-loss"
-        download="ChartLoss.jpg"
-        href=""
-        class="btn btn-primary">
+        className="btn"
+        download="ChartLoss.jpg">
         <i class="fa fa-download"></i>
-      </a>
+      </button>
     </div>
   );
 };

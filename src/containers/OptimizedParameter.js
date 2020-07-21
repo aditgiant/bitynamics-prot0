@@ -6,18 +6,18 @@ class OptimizedParameter extends Component {
     return (
       <div class="card-parameter">
         <div class="card-body">
-          <div class="card-title-parameter">Model Parameters</div>
+          <div class="label-metrics">Model Parameters</div>
           <div className="row card-parameter-items">
             <div class="card card-parameter-item">
               <div class="card-body">
-                <h4 class="card-title">OUTPUT TYPE</h4>
+                <h4 class="label-metrics">OUTPUT TYPE</h4>
 
                 <p class="card-text model-parameter">Classification</p>
               </div>
             </div>
             <div class="card card-parameter-item">
               <div class="card-body">
-                <h4 class="card-title">NETWORK CLASS</h4>
+                <h4 class="label-metrics">NETWORK CLASS</h4>
                 <p class="card-text model-parameter">
                   Convolutional Neural Network
                 </p>
@@ -25,7 +25,7 @@ class OptimizedParameter extends Component {
             </div>
             <div class="card card-parameter-item">
               <div class="card-body">
-                <h4 class="card-title">OPTIMIZER</h4>
+                <h4 class="label-metrics">OPTIMIZER</h4>
                 <p class="card-text model-parameter">Name: {param.optimizer}</p>
                 <p class="card-text model-parameter">
                   Learning Rate: {param.lr}
@@ -37,13 +37,13 @@ class OptimizedParameter extends Component {
             </div>
             <div class="card card-parameter-item">
               <div class="card-body">
-                <h4 class="card-title">BATCH SIZE</h4>
+                <h4 class="label-metrics">BATCH SIZE</h4>
                 <p class="card-text model-parameter">{param.batch_size}</p>
               </div>
             </div>
             <div class="card card-parameter-item">
               <div class="card-body">
-                <h4 class="card-title">EPOCHS</h4>
+                <h4 class="label-metrics">EPOCHS</h4>
                 <p class="card-text model-parameter">{param.epochs}</p>
               </div>
             </div>

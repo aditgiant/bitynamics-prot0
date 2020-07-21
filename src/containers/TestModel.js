@@ -43,7 +43,9 @@ function TestModel(props) {
               </div>
             </div>
           </div>
-          <div className="white-card">
+
+          <div className="card-analytics p-3 ">
+            <div class="label-metrics mb-3">Testing Output</div>
             <OutputChart />
           </div>
 

@@ -14,7 +14,7 @@ const OutputChart = () => {
         borderColor: 'rgba(75,192,192,1)',
         borderWidth: 2,
         display: true,
-        pointRadius: 5,
+        pointRadius: 10,
         data: [
           {
             x: -10,
@@ -52,10 +52,11 @@ const OutputChart = () => {
         fill: false,
         lineTension: 0.5,
         backgroundColor: 'black',
-        borderColor: 'balck',
+        borderColor: 'black',
         borderWidth: 2,
         display: true,
-        pointRadius: 5,
+        pointRadius: 10,
+
         data: [
           {
             x: -20,
@@ -96,7 +97,8 @@ const OutputChart = () => {
         borderColor: 'red',
         borderWidth: 2,
         display: true,
-        pointRadius: 5,
+        pointRadius: 10,
+
         data: [
           {
             x: -20,
@@ -137,7 +139,8 @@ const OutputChart = () => {
         borderColor: 'green',
         borderWidth: 2,
         display: true,
-        pointRadius: 5,
+        pointRadius: 10,
+
         data: [
           {
             x: 40,
@@ -177,7 +180,8 @@ const OutputChart = () => {
         borderColor: 'pink',
         borderWidth: 2,
         display: true,
-        pointRadius: 5,
+        pointRadius: 10,
+
         data: [
           {
             x: 20,
@@ -218,7 +222,8 @@ const OutputChart = () => {
         borderColor: 'orange',
         borderWidth: 2,
         display: true,
-        pointRadius: 5,
+        pointRadius: 10,
+
         data: [
           {
             x: 30,
@@ -259,7 +264,8 @@ const OutputChart = () => {
         borderColor: '#005791',
         borderWidth: 2,
         display: true,
-        pointRadius: 5,
+        pointRadius: 10,
+
         data: [
           {
             x: 0,
@@ -300,7 +306,8 @@ const OutputChart = () => {
         borderColor: '#8B572A',
         borderWidth: 2,
         display: true,
-        pointRadius: 5,
+        pointRadius: 10,
+
         data: [
           {
             x: 100,
@@ -341,7 +348,7 @@ const OutputChart = () => {
         borderColor: '#417505',
         borderWidth: 2,
         display: true,
-        pointRadius: 5,
+        pointRadius: 10,
         data: [
           {
             x: 10,
@@ -382,7 +389,7 @@ const OutputChart = () => {
         borderColor: '#BD10E0',
         borderWidth: 2,
         display: true,
-        pointRadius: 5,
+        pointRadius: 10,
         data: [
           {
             x: -50,
@@ -433,16 +440,16 @@ const OutputChart = () => {
       <Scatter
         data={state}
         options={{
-          title: {
-            display: true,
-            text: 'Output',
-            fontSize: 16,
-            position: 'top',
-            fontFamily: 'Lato',
-            fontColor: '#9B9B9B',
-            fontStyle: 400,
-            xAxis: 'Principle Component 1',
-          },
+          // title: {
+          //   display: true,
+          //   text: 'Output',
+          //   fontSize: 16,
+          //   position: 'top',
+          //   fontFamily: 'Lato',
+          //   fontColor: '#9B9B9B',
+          //   fontStyle: 400,
+          //   xAxis: 'Principle Component 1',
+          // },
           legend: {
             display: true,
             position: 'right',
