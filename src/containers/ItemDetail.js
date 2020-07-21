@@ -206,6 +206,7 @@ class ItemDetail extends Component {
                 </button>
                 {this.state.showPopup ? (
                   <RetrainPopUp
+                    sessionId={sessionId}
                     closePopup={this.togglePopup.bind(this)}
                     handleRetrain={this.handleRetrain.bind(this)}
                     fireRedirect={this.state.fireRedirect}

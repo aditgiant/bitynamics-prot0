@@ -50,7 +50,7 @@ class App extends Component {
           <Router>
             <Switch>
               <Route path="/" exact component={Home} />
-              <Route path="/project/:id" exact component={ProjectHome} />
+              <Route exact path="/project/:id" exact component={ProjectHome} />
               <Route path="/dataset/:id" component={Dataset} />
               <Route path="/sessiontraining/:id" component={SessionTraining} />
               <Route path="/networksettings" component={NetworkSettings} />
