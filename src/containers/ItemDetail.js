@@ -78,14 +78,14 @@ class ItemDetail extends Component {
             <div>
               <h3>Model {modelId}</h3>
               <div className="row">
-                <div className="col-md-10 ">
+                <div className="col-md-9 ">
                   <Link to={`/sessionmodel/${sessionId}`}>
                     <i class="fas fa-angle-left mr-2"></i>
                     <span>Back to Top Model</span>
                   </Link>
                 </div>
 
-                <div className="col-md-2">
+                <div className="col-md-3">
                   <a
                     href={
                       'data:text/json;charset=utf-8,' +

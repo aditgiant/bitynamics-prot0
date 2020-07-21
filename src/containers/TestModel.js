@@ -16,7 +16,7 @@ function TestModel(props) {
 
   return (
     <div>
-      <Container id="models-container">
+      <Container id="training-container">
         <div style={{height: '100vh'}}>
           <div className="menu-list">
             <Menu sessionId={sessionId} modelId={modelId} />

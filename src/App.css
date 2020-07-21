@@ -524,7 +524,6 @@ input[type='radio']:checked + label > p {
 }
 
 #training-container {
-  top: 10vh;
   height: 100vh;
   margin-left: 15vw;
   margin-right: 15vw;
