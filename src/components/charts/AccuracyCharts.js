@@ -55,15 +55,15 @@ const AccuracyCharts = (props) => {
         data={state}
         id="accuracy-chart"
         options={{
-          title: {
-            display: true,
-            text: 'Accuracy per Epoch',
-            fontSize: 16,
-            position: 'top',
-            fontFamily: 'Lato',
-            fontColor: '#9B9B9B',
-            fontStyle: 400,
-          },
+          // title: {
+          //   display: true,
+          //   text: 'Accuracy per Epoch',
+          //   fontSize: 16,
+          //   position: 'top',
+          //   fontFamily: 'Lato',
+          //   fontColor: '#9B9B9B',
+          //   fontStyle: 400,
+          // },
           legend: {
             display: true,
             position: 'bottom',
@@ -71,14 +71,13 @@ const AccuracyCharts = (props) => {
         }}
       />
 
-      <a
+      <button
         onClick={() => downloadChart()}
         id="download-chart"
         download="ChartAccuracy.jpg"
-        href=""
-        className="btn btn-primary">
+        className="btn">
         <i className="fa fa-download"></i>
-      </a>
+      </button>
     </div>
   );
 };

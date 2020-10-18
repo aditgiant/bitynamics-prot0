@@ -16,7 +16,7 @@ function TestModel(props) {
 
   return (
     <div>
-      <Container id="models-container">
+      <Container id="training-container">
         <div style={{height: '100vh'}}>
           <div className="menu-list">
             <Menu sessionId={sessionId} modelId={modelId} />
@@ -43,7 +43,9 @@ function TestModel(props) {
               </div>
             </div>
           </div>
-          <div className="white-card">
+
+          <div className="card-analytics p-3 ">
+            <div class="label-metrics mb-3">Testing Output</div>
             <OutputChart />
           </div>
 

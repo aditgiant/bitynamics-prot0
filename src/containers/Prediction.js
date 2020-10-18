@@ -162,7 +162,7 @@ const Prediction = (props) => {
   // if (data.length === 0) {
   return (
     <div>
-      <Container id="models-container">
+      <Container id="training-container">
         <div className="menu-list">
           <Menu sessionId={sessionId} modelId={modelId} />
         </div>

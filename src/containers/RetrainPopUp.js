@@ -10,9 +10,15 @@ const RetrainPopUp = (props) => {
     if (selectedOption === 'option1') {
       console.log('go to home');
       //change to parameter settings page
-      return props.fireRedirect && <Redirect to={ROUTES.EVALUATE} />;
+      return (
+        props.fireRedirect && (
+          <Redirect to={`/sessiontraining/${props.sessionId}`} />
+        )
+      );
     } else {
-      return props.fireRedirect && <Redirect to={ROUTES.HOME} />;
+      return (
+        props.fireRedirect && <Redirect to={`/project/${props.sessionId}`} />
+      );
     }
   };
 
@@ -50,6 +56,7 @@ const RetrainPopUp = (props) => {
               <button className="btn btn-white" onClick={props.closePopup}>
                 Cancel
               </button>
+
               <button type="submit" className="btn btn-yellow">
                 Retrain
               </button>

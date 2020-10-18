@@ -70,7 +70,7 @@ class ItemDetail extends Component {
     };
     return (
       <div>
-        <Container id="models-container">
+        <Container id="training-container">
           <div className="analytics">
             <div className="menu-list">
               <Menu sessionId={sessionId} modelId={modelId} />
@@ -78,14 +78,14 @@ class ItemDetail extends Component {
             <div>
               <h3>Model {modelId}</h3>
               <div className="row">
-                <div className="col-md-10 ">
+                <div className="col-md-9 ">
                   <Link to={`/sessionmodel/${sessionId}`}>
                     <i class="fas fa-angle-left mr-2"></i>
                     <span>Back to Top Model</span>
                   </Link>
                 </div>
 
-                <div className="col-md-2">
+                <div className="col-md-3">
                   <a
                     href={
                       'data:text/json;charset=utf-8,' +
@@ -101,6 +101,7 @@ class ItemDetail extends Component {
               <div className="row">
                 <div className="accuracy col-md-6">
                   <div className="accuracy-chart">
+                    <div class="label-metrics mb-3">Accuracy per Epoch</div>
                     <AccuracyCharts
                       accuracy={training.metric}
                       val_accuracy={training.val_metric}
@@ -128,6 +129,7 @@ class ItemDetail extends Component {
                 </div>
                 <div className="loss col-md-6">
                   <div className="accuracy-chart">
+                    <div class="label-metrics mb-3">Loss per Epoch</div>
                     <LossCharts
                       loss={training.loss}
                       val_loss={training.val_loss}
@@ -156,9 +158,9 @@ class ItemDetail extends Component {
               <div className="row mt-3 analytics-summary">
                 <div class="card-analytics text-left col-md-6">
                   <div class="card-body">
-                    <div class="header-label">Training Time</div>
+                    <div class="label-metrics">Training Time</div>
                     <div className="row">
-                      <div className="col-lg-8">
+                      <div className="col-lg-8 mt-3">
                         <DurationCharts />
                       </div>
                       <div className="col-lg-4">
@@ -174,11 +176,14 @@ class ItemDetail extends Component {
               <div className="analytics-summary mt-3">
                 <OptimizedParameter param={param} />
               </div>
-              <div className="analytics-summary mt-5">
+              {/* <div className="analytics-summary mt-5">
                 <NetworkArtchitecture />
+              </div> */}
+              <div className="card-analytics p-3">
+                <div class="label-metrics mb-3">Training Output</div>
+                <OutputChart />
               </div>
 
-              <OutputChart />
               <div className="analytics-summary mt-5">
                 <div className="white-card "></div>
               </div>
@@ -201,6 +206,7 @@ class ItemDetail extends Component {
                 </button>
                 {this.state.showPopup ? (
                   <RetrainPopUp
+                    sessionId={sessionId}
                     closePopup={this.togglePopup.bind(this)}
                     handleRetrain={this.handleRetrain.bind(this)}
                     fireRedirect={this.state.fireRedirect}

@@ -523,6 +523,17 @@ input[type='radio']:checked + label > p {
   position: relative;
 }
 
+#training-container {
+  height: 100vh;
+  margin-left: 15vw;
+  margin-right: 15vw;
+  /* border: 1px solid #ccc; */
+  border-radius: 10px;
+  padding: 40px;
+  /* box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.11); */
+  position: relative;
+}
+
 .menu-list {
   margin-top: 80px;
   text-align: center;
@@ -627,7 +638,7 @@ input[type='radio']:checked + label > p {
   font-size: 16px;
   font-family: 'Lato', sans-serif;
   color: #9b9b9b;
-  text-align: center;
+  text-align: left;
 }
 
 .value-metrics {
@@ -635,7 +646,6 @@ input[type='radio']:checked + label > p {
   font-family: 'Lato', sans-serif;
   color: #4a4a4a;
   text-align: center;
-  padding-top: 10px;
 }
 
 .header-label {
@@ -649,6 +659,9 @@ input[type='radio']:checked + label > p {
   background-color: white;
 }
 
+.card-text-performance {
+  text-align: center;
+}
 .card-text-performance ul li {
   list-style: none;
   color: #4a4a4a;
@@ -663,7 +676,7 @@ input[type='radio']:checked + label > p {
   justify-content: space-between;
 }
 .card-parameter-items {
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 
 .card-parameter-item {
