@@ -10,7 +10,8 @@ import {Link} from 'react-router-dom';
 import {Container} from 'react-bootstrap';
 import { isElementOfType } from 'react-dom/test-utils';
 
-const ParameterSettings = () => {
+const ParameterSettings = (props) => {
+    // const projectid = this.props.match.params.id;
     /// Network Type
     const [networkState, setNetworkState] = useState({
         network: ''
@@ -51,7 +52,7 @@ const ParameterSettings = () => {
     function handleFormSubmit(e){
         e.preventDefault();
         let layerList = layerState;
-       
+        console.log(props);
         window.alert(JSON.stringify(layerList, 0, 2))
       };
 
@@ -100,7 +101,7 @@ const ParameterSettings = () => {
             title = {'Submit'} 
             style = {buttonStyle}
             /> { /*Submit */ }  
-        <Link to='/sessiontraining'><Button 
+        <Link to={'/sessiontraining/'+props.match.params.id}><Button 
             type = {'secondary'} 
             title = {'Back'} 
             style = {buttonStyle}

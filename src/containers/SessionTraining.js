@@ -265,7 +265,7 @@ class SessionTraining extends Component {
             </button>
           )}
           {this.state.step == 1 && (
-            <Link to="/networksettings">
+            <Link to={"/networksettings/"+this.state.id}>
               <button className="btn btn-primary" style={buttonStyle}>
                 Build network
               </button>

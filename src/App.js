@@ -53,7 +53,7 @@ class App extends Component {
               <Route exact path="/project/:id" exact component={ProjectHome} />
               <Route path="/dataset/:id" component={Dataset} />
               <Route path="/sessiontraining/:id" component={SessionTraining} />
-              <Route path="/networksettings" component={NetworkSettings} />
+              <Route path="/networksettings/:id" component={NetworkSettings} />
               <Route
                 path="/sessionmodel/:id"
                 models={models.models}
